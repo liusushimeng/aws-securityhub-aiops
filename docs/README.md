@@ -23,8 +23,8 @@ The Center for Internet Security (CIS) AWS Foundations Benchmark v1.2.0 is a set
 
 ## Standards Control Exception
 
-- https://git.daimler.com/ITT-China/aws-securityhub/blob/master/docs/AWS%20Foundational%20Security%20Best%20Practices%20v1.0.0.xlsx
-- https://git.daimler.com/ITT-China/aws-securityhub/blob/master/docs/CIS%20AWS%20Foundations%20Benchmark%20v1.2.0.xlsx
+- https://git.company.com/ITT-China/aws-securityhub/blob/master/docs/AWS%20Foundational%20Security%20Best%20Practices%20v1.0.0.xlsx
+- https://git.company.com/ITT-China/aws-securityhub/blob/master/docs/CIS%20AWS%20Foundations%20Benchmark%20v1.2.0.xlsx
 
 
 # Architecture
@@ -48,7 +48,7 @@ https://console.amazonaws.cn/securityhub/home?region=cn-north-1#/summary
 - create ims-service-role with below info in resource account
 ```
 {
-    "projectCode": "oap2",
+    "projectCode": "abc",
     "RoleName": "ims-service-role",
     "AssumeRolePolicyDocument": {
         "Version": "2012-10-17",
@@ -56,7 +56,7 @@ https://console.amazonaws.cn/securityhub/home?region=cn-north-1#/summary
             {
                 "Effect": "Allow",
                 "Principal": {
-                    "AWS": "arn:aws-cn:iam::843403612003:role/service-role/oap2-ims-master"
+                    "AWS": "arn:aws-cn:iam::843403612003:role/service-role/abc-ims-master"
                 },
                 "Action": [
                     "sts:AssumeRole"
@@ -64,8 +64,8 @@ https://console.amazonaws.cn/securityhub/home?region=cn-north-1#/summary
             }
         ]
     },
-    "Description": "Service Role for OAP2 IMS",
-    "Path": "/oap2-ims/",
+    "Description": "Service Role for ABC IMS",
+    "Path": "/abc-ims/",
     "MaxSessionDuration": 3600
 }
 ```
@@ -86,15 +86,15 @@ https://console.amazonaws.cn/securityhub/home?region=cn-north-1#/summary
 # Example (need to replace jwtToken with real token which can get with below API)
 
 # curl -H 'Content-Type: application/json' -X POST 'https://aqu5oyrzna.execute-api.cn-north-1.amazonaws.com.cn/dev/auth/login' -d '{
-    "username": "A133_s_itioap",
-    "password": "1u2d3u4d5u"
+    "username": "{$username}",
+    "password": "{$password}"
 }'
 
 # curl -H "Authorization: jwtToken" -H "Content-Type: application/json" -X POST "https://i06pro3vvi.execute-api.cn-north-1.amazonaws.com.cn/api/securityhub/onboard" -d '{
 	"AwsAccountIds": [
         {
             "AwsAccountId": "843064179036",
-            "Email": "ITI_ShareService_dev@daimler.com"
+            "Email": "BUShareService_dev@company.com"
 	    }
     ],
 	"MasterId": "843403612003"
@@ -126,15 +126,15 @@ After the initial check, the schedule for each control can be either periodic or
 # Example (need to replace jwtToken with real token which can get with below API)
 
 # curl -H 'Content-Type: application/json' -X POST 'https://aqu5oyrzna.execute-api.cn-north-1.amazonaws.com.cn/dev/auth/login' -d '{
-  "username": "A133_s_itioap",
-  "password": "1u2d3u4d5u"
+  "username": "{$username}",
+  "password": "{$password}"
 }'
 
 # curl -H "Authorization: jwtToken" -H "Content-Type: application/json" -X POST "https://i06pro3vvi.execute-api.cn-north-1.amazonaws.com.cn/api/securityhub/enable-standards" -d '{
     "AwsAccountIds": [
         {
             "AwsAccountId": "843064179036",
-            "Email": "ITI_ShareService_dev@daimler.com"
+            "Email": "BUShareService_dev@company.com"
         }
     ],
     "ExceptionControlsIDs": [
@@ -194,15 +194,15 @@ After the initial check, the schedule for each control can be either periodic or
 # Example (need to replace jwtToken with real token which can get with below API)
 
 # curl -H 'Content-Type: application/json' -X POST 'https://aqu5oyrzna.execute-api.cn-north-1.amazonaws.com.cn/dev/auth/login' -d '{
-  "username": "A133_s_itioap",
-  "password": "1u2d3u4d5u"
+  "username": "{$username}",
+  "password": "{$password}"
 }'
 
 # curl -H "Authorization: jwtToken" -H "Content-Type: application/json" -X POST "https://i06pro3vvi.execute-api.cn-north-1.amazonaws.com.cn/api/securityhub/disable-standards" -d '{
   "AwsAccountIds": [
         {
             "AwsAccountId": "843064179036",
-            "Email": "ITI_ShareService_dev@daimler.com"
+            "Email": "BUShareService_dev@company.com"
         }
   ]
 }'
@@ -340,15 +340,15 @@ You use this method to automatically send all findings, or all findings that hav
 # Example (need to replace jwtToken with real token which can get with below API)
 
 # curl -H 'Content-Type: application/json' -X POST 'https://aqu5oyrzna.execute-api.cn-north-1.amazonaws.com.cn/dev/auth/login' -d '{
-  "username": "A133_s_itioap",
-  "password": "1u2d3u4d5u"
+  "username": "{$username}",
+  "password": "{$password}"
 }'
 
 # curl -H "Authorization: jwtToken" -H "Content-Type: application/json" -X POST "https://i06pro3vvi.execute-api.cn-north-1.amazonaws.com.cn/api/securityhub/guardduty-onboard" -d '{
 	"AwsAccountIds": [
         {
             "AwsAccountId": "843064179036",
-            "Email": "ITI_ShareService_dev@daimler.com"
+            "Email": "BUShareService_dev@company.com"
         }
     ],
 	"MasterId": "843403612003"
@@ -367,15 +367,15 @@ You use this method to automatically send all findings, or all findings that hav
 # Example (need to replace jwtToken with real token which can get with below API)
 
 # curl -H 'Content-Type: application/json' -X POST 'https://aqu5oyrzna.execute-api.cn-north-1.amazonaws.com.cn/dev/auth/login' -d '{
-  "username": "A133_s_itioap",
-  "password": "1u2d3u4d5u"
+  "username": "{$username}",
+  "password": "{$password}"
 }'
 
 # curl -H "Authorization: jwtToken" -H "Content-Type: application/json" -X POST "https://i06pro3vvi.execute-api.cn-north-1.amazonaws.com.cn/api/securityhub/guardduty-offboard" -d '{
 	"AwsAccountIds": [
         {
             "AwsAccountId": "843064179036",
-            "Email": "ITI_ShareService_dev@daimler.com"
+            "Email": "BUShareService_dev@company.com"
         }
     ],
 	"MasterId": "843403612003"
@@ -391,15 +391,15 @@ You use this method to automatically send all findings, or all findings that hav
 # Example (need to replace jwtToken with real token which can get with below API)
 
 # curl -H 'Content-Type: application/json' -X POST 'https://aqu5oyrzna.execute-api.cn-north-1.amazonaws.com.cn/dev/auth/login' -d '{
-  "username": "A133_s_itioap",
-  "password": "1u2d3u4d5u"
+  "username": "{$username}",
+  "password": "{$password}"
 }'
 
 # curl -H "Authorization: jwtToken" -H "Content-Type: application/json" -X POST "https://i06pro3vvi.execute-api.cn-north-1.amazonaws.com.cn/api/securityhub/iamanalyzer-onboard" -d '{
 	"AwsAccountIds": [
         {
             "AwsAccountId": "843064179036",
-            "Email": "ITI_ShareService_dev@daimler.com"
+            "Email": "BUShareService_dev@company.com"
         }
     ]
 }'
@@ -417,15 +417,15 @@ You use this method to automatically send all findings, or all findings that hav
 # Example (need to replace jwtToken with real token which can get with below API)
 
 # curl -H 'Content-Type: application/json' -X POST 'https://aqu5oyrzna.execute-api.cn-north-1.amazonaws.com.cn/dev/auth/login' -d '{
-  "username": "A133_s_itioap",
-  "password": "1u2d3u4d5u"
+  "username": "{$username}",
+  "password": "{$password}"
 }'
 
 # curl -H "Authorization: jwtToken" -H "Content-Type: application/json" -X POST "https://i06pro3vvi.execute-api.cn-north-1.amazonaws.com.cn/api/securityhub/offboard" -d '{
 	"AwsAccountIds": [
         {
             "AwsAccountId": "843064179036",
-            "Email": "ITI_ShareService_dev@daimler.com"
+            "Email": "BUShareService_dev@company.com"
 	    }
     ],
 	"MasterId": "843403612003"
