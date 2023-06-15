@@ -21,16 +21,16 @@ Before you can deploy an application, be sure you have AWS credentials configure
 # Deploy
 ## Local
 ```
-# git clone https://git.daimler.com/ITT-China/aws-sechub.git
-# cd aws-sechub
+# git clone https://github.com/liusushimeng/aws-securityhub-aiops.git
+# cd aws-securityhub-aiops
 # pip install -r requirements.txt
 # chalice deploy --profile SharedP  (profile name need to be replaced by your settings)
 ```
 
 ## Automatically
 ```
-# git clone https://git.daimler.com/ITT-China/aws-sechub.git
-# cd aws-sechub
+# git clone https://github.com/liusushimeng/aws-securityhub-aiops.git
+# cd aws-securityhub-aiops
 # git add .
 # git commit -m "sth to do"   (Deploy pipeline will be triggered automatically on DevCenter)
 # git push
