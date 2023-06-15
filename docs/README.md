@@ -56,7 +56,7 @@ https://console.amazonaws.cn/securityhub/home?region=cn-north-1#/summary
             {
                 "Effect": "Allow",
                 "Principal": {
-                    "AWS": "arn:aws-cn:iam::843403612003:role/service-role/abc-ims-master"
+                    "AWS": "arn:aws-cn:iam::{$AccountID}:role/service-role/abc-ims-master"
                 },
                 "Action": [
                     "sts:AssumeRole"
@@ -85,19 +85,19 @@ https://console.amazonaws.cn/securityhub/home?region=cn-north-1#/summary
 ```
 # Example (need to replace jwtToken with real token which can get with below API)
 
-# curl -H 'Content-Type: application/json' -X POST 'https://aqu5oyrzna.execute-api.cn-north-1.amazonaws.com.cn/dev/auth/login' -d '{
+# curl -H 'Content-Type: application/json' -X POST 'https://{$host}/dev/auth/login' -d '{
     "username": "{$username}",
     "password": "{$password}"
 }'
 
-# curl -H "Authorization: jwtToken" -H "Content-Type: application/json" -X POST "https://i06pro3vvi.execute-api.cn-north-1.amazonaws.com.cn/api/securityhub/onboard" -d '{
+# curl -H "Authorization: jwtToken" -H "Content-Type: application/json" -X POST "https://{$host}/api/securityhub/onboard" -d '{
 	"AwsAccountIds": [
         {
-            "AwsAccountId": "843064179036",
+            "AwsAccountId": "{$AccountID}",
             "Email": "BUShareService_dev@company.com"
 	    }
     ],
-	"MasterId": "843403612003"
+	"MasterId": "{$AccountID}"
 }' 
 ```
 #### Manually
@@ -125,15 +125,15 @@ After the initial check, the schedule for each control can be either periodic or
 ```
 # Example (need to replace jwtToken with real token which can get with below API)
 
-# curl -H 'Content-Type: application/json' -X POST 'https://aqu5oyrzna.execute-api.cn-north-1.amazonaws.com.cn/dev/auth/login' -d '{
+# curl -H 'Content-Type: application/json' -X POST 'https://{$host}/dev/auth/login' -d '{
   "username": "{$username}",
   "password": "{$password}"
 }'
 
-# curl -H "Authorization: jwtToken" -H "Content-Type: application/json" -X POST "https://i06pro3vvi.execute-api.cn-north-1.amazonaws.com.cn/api/securityhub/enable-standards" -d '{
+# curl -H "Authorization: jwtToken" -H "Content-Type: application/json" -X POST "https://{$host}/api/securityhub/enable-standards" -d '{
     "AwsAccountIds": [
         {
-            "AwsAccountId": "843064179036",
+            "AwsAccountId": "{$AccountID}",
             "Email": "BUShareService_dev@company.com"
         }
     ],
@@ -193,15 +193,15 @@ After the initial check, the schedule for each control can be either periodic or
 ```
 # Example (need to replace jwtToken with real token which can get with below API)
 
-# curl -H 'Content-Type: application/json' -X POST 'https://aqu5oyrzna.execute-api.cn-north-1.amazonaws.com.cn/dev/auth/login' -d '{
+# curl -H 'Content-Type: application/json' -X POST 'https://{$host}/dev/auth/login' -d '{
   "username": "{$username}",
   "password": "{$password}"
 }'
 
-# curl -H "Authorization: jwtToken" -H "Content-Type: application/json" -X POST "https://i06pro3vvi.execute-api.cn-north-1.amazonaws.com.cn/api/securityhub/disable-standards" -d '{
+# curl -H "Authorization: jwtToken" -H "Content-Type: application/json" -X POST "https://{$host}/api/securityhub/disable-standards" -d '{
   "AwsAccountIds": [
         {
-            "AwsAccountId": "843064179036",
+            "AwsAccountId": "{$AccountID}",
             "Email": "BUShareService_dev@company.com"
         }
   ]
@@ -269,35 +269,35 @@ You use this method to automatically send all findings, or all findings that hav
 
 |No.	| Action Name 	| Custom action ARN 							                                |Finding Handler|
 |-------|---------------|-------------------------------------------------------------------------------|---------------|
-|1		|APIGateway.1	|	arn:aws-cn:securityhub:cn-north-1:843403612003:action/custom/APIGateway1 	|APIGateway1	|
-|2		|CIS.1.10		|	arn:aws-cn:securityhub:cn-north-1:843403612003:action/custom/CIS110			|CIS110 		|	    
-|3		|CIS.2.8		|	arn:aws-cn:securityhub:cn-north-1:843403612003:action/custom/CIS28			|CIS28			|
-|4		|CloudTrail.1	|	arn:aws-cn:securityhub:cn-north-1:843403612003:action/custom/CloudTrail1	|CloudTrail1	|
-|5		|CloudTrail.2	|	arn:aws-cn:securityhub:cn-north-1:843403612003:action/custom/CloudTrail2	|CloudTrail2	|	
-|6		|CloudTrail.4	|	arn:aws-cn:securityhub:cn-north-1:843403612003:action/custom/CloudTrail4	|CloudTrail4	|
-|7		|DynamoDB.2		|	arn:aws-cn:securityhub:cn-north-1:843403612003:action/custom/DynamoDB2		|DynamoDB2		|
-|8		|EC2.2			|	arn:aws-cn:securityhub:cn-north-1:843403612003:action/custom/EC22			|EC22			|
-|9		|ELB.4			|	arn:aws-cn:securityhub:cn-north-1:843403612003:action/custom/ELB4			|ELB4			|
-|10		|ELB.5			|	arn:aws-cn:securityhub:cn-north-1:843403612003:action/custom/ELB5			|ELB5			|
-|11		|ELB.6			|	arn:aws-cn:securityhub:cn-north-1:843403612003:action/custom/ELB6			|ELB6			|
-|12		|IAM.7			|	arn:aws-cn:securityhub:cn-north-1:843403612003:action/custom/IAM7			|IAM7			|
-|13		|RDS.8			|	arn:aws-cn:securityhub:cn-north-1:843403612003:action/custom/RDS8			|RDS8			|
-|14		|RDS.9			|	arn:aws-cn:securityhub:cn-north-1:843403612003:action/custom/RDS9			|RDS9			|
-|15		|S3.2			|	arn:aws-cn:securityhub:cn-north-1:843403612003:action/custom/S32			|S32			|
-|16		|S3.3			|	arn:aws-cn:securityhub:cn-north-1:843403612003:action/custom/S33			|S33			|
-|17		|S3.4			|	arn:aws-cn:securityhub:cn-north-1:843403612003:action/custom/S34			|S34			|
-|18		|S3.5			|	arn:aws-cn:securityhub:cn-north-1:843403612003:action/custom/S35			|S35			|
-|19		|S3.6			|	arn:aws-cn:securityhub:cn-north-1:843403612003:action/custom/S36			|S36			|
-|20		|SNS.1			|	arn:aws-cn:securityhub:cn-north-1:843403612003:action/custom/SNS1			|SNS1			|
-|21		|SQS.1			|	arn:aws-cn:securityhub:cn-north-1:843403612003:action/custom/SQS1			|SQS1			|
-|22		|IAM.2			|	arn:aws-cn:securityhub:cn-north-1:843403612003:action/custom/IAM2			|IAM2			|
-|23		|IAM.3			|	arn:aws-cn:securityhub:cn-north-1:843403612003:action/custom/IAM3			|IAM3			|
-|24		|IAM.5			|	arn:aws-cn:securityhub:cn-north-1:843403612003:action/custom/IAM5			|IAM5			|
-|25		|IAM.8			|	arn:aws-cn:securityhub:cn-north-1:843403612003:action/custom/IAM8			|IAM8			|
-|26		|RDS.20			|	arn:aws-cn:securityhub:cn-north-1:843403612003:action/custom/RDS20			|RDS20			|
-|27		|Suppressed		|	arn:aws-cn:securityhub:cn-north-1:843403612003:action/custom/Suppressed		|Suppressed		|
-|28		|UnSuppressed	|	arn:aws-cn:securityhub:cn-north-1:843403612003:action/custom/UnSuppressed	|UnSuppressed	|
-|29		|S3.9			|	arn:aws-cn:securityhub:cn-north-1:843403612003:action/custom/S39			|S39			|
+|1		|APIGateway.1	|	arn:aws-cn:securityhub:cn-north-1:{$AccountID}:action/custom/APIGateway1 	|APIGateway1	|
+|2		|CIS.1.10		|	arn:aws-cn:securityhub:cn-north-1:{$AccountID}:action/custom/CIS110			|CIS110 		|	    
+|3		|CIS.2.8		|	arn:aws-cn:securityhub:cn-north-1:{$AccountID}:action/custom/CIS28			|CIS28			|
+|4		|CloudTrail.1	|	arn:aws-cn:securityhub:cn-north-1:{$AccountID}:action/custom/CloudTrail1	|CloudTrail1	|
+|5		|CloudTrail.2	|	arn:aws-cn:securityhub:cn-north-1:{$AccountID}:action/custom/CloudTrail2	|CloudTrail2	|	
+|6		|CloudTrail.4	|	arn:aws-cn:securityhub:cn-north-1:{$AccountID}:action/custom/CloudTrail4	|CloudTrail4	|
+|7		|DynamoDB.2		|	arn:aws-cn:securityhub:cn-north-1:{$AccountID}:action/custom/DynamoDB2		|DynamoDB2		|
+|8		|EC2.2			|	arn:aws-cn:securityhub:cn-north-1:{$AccountID}:action/custom/EC22			|EC22			|
+|9		|ELB.4			|	arn:aws-cn:securityhub:cn-north-1:{$AccountID}:action/custom/ELB4			|ELB4			|
+|10		|ELB.5			|	arn:aws-cn:securityhub:cn-north-1:{$AccountID}:action/custom/ELB5			|ELB5			|
+|11		|ELB.6			|	arn:aws-cn:securityhub:cn-north-1:{$AccountID}:action/custom/ELB6			|ELB6			|
+|12		|IAM.7			|	arn:aws-cn:securityhub:cn-north-1:{$AccountID}:action/custom/IAM7			|IAM7			|
+|13		|RDS.8			|	arn:aws-cn:securityhub:cn-north-1:{$AccountID}:action/custom/RDS8			|RDS8			|
+|14		|RDS.9			|	arn:aws-cn:securityhub:cn-north-1:{$AccountID}:action/custom/RDS9			|RDS9			|
+|15		|S3.2			|	arn:aws-cn:securityhub:cn-north-1:{$AccountID}:action/custom/S32			|S32			|
+|16		|S3.3			|	arn:aws-cn:securityhub:cn-north-1:{$AccountID}:action/custom/S33			|S33			|
+|17		|S3.4			|	arn:aws-cn:securityhub:cn-north-1:{$AccountID}:action/custom/S34			|S34			|
+|18		|S3.5			|	arn:aws-cn:securityhub:cn-north-1:{$AccountID}:action/custom/S35			|S35			|
+|19		|S3.6			|	arn:aws-cn:securityhub:cn-north-1:{$AccountID}:action/custom/S36			|S36			|
+|20		|SNS.1			|	arn:aws-cn:securityhub:cn-north-1:{$AccountID}:action/custom/SNS1			|SNS1			|
+|21		|SQS.1			|	arn:aws-cn:securityhub:cn-north-1:{$AccountID}:action/custom/SQS1			|SQS1			|
+|22		|IAM.2			|	arn:aws-cn:securityhub:cn-north-1:{$AccountID}:action/custom/IAM2			|IAM2			|
+|23		|IAM.3			|	arn:aws-cn:securityhub:cn-north-1:{$AccountID}:action/custom/IAM3			|IAM3			|
+|24		|IAM.5			|	arn:aws-cn:securityhub:cn-north-1:{$AccountID}:action/custom/IAM5			|IAM5			|
+|25		|IAM.8			|	arn:aws-cn:securityhub:cn-north-1:{$AccountID}:action/custom/IAM8			|IAM8			|
+|26		|RDS.20			|	arn:aws-cn:securityhub:cn-north-1:{$AccountID}:action/custom/RDS20			|RDS20			|
+|27		|Suppressed		|	arn:aws-cn:securityhub:cn-north-1:{$AccountID}:action/custom/Suppressed		|Suppressed		|
+|28		|UnSuppressed	|	arn:aws-cn:securityhub:cn-north-1:{$AccountID}:action/custom/UnSuppressed	|UnSuppressed	|
+|29		|S3.9			|	arn:aws-cn:securityhub:cn-north-1:{$AccountID}:action/custom/S39			|S39			|
 
 #### IAM3 handler need below tags for AWS IAM users if have AKSK
 ```
@@ -339,19 +339,19 @@ You use this method to automatically send all findings, or all findings that hav
 ```
 # Example (need to replace jwtToken with real token which can get with below API)
 
-# curl -H 'Content-Type: application/json' -X POST 'https://aqu5oyrzna.execute-api.cn-north-1.amazonaws.com.cn/dev/auth/login' -d '{
+# curl -H 'Content-Type: application/json' -X POST 'https://{$host}/dev/auth/login' -d '{
   "username": "{$username}",
   "password": "{$password}"
 }'
 
-# curl -H "Authorization: jwtToken" -H "Content-Type: application/json" -X POST "https://i06pro3vvi.execute-api.cn-north-1.amazonaws.com.cn/api/securityhub/guardduty-onboard" -d '{
+# curl -H "Authorization: jwtToken" -H "Content-Type: application/json" -X POST "https://{$host}/api/securityhub/guardduty-onboard" -d '{
 	"AwsAccountIds": [
         {
-            "AwsAccountId": "843064179036",
+            "AwsAccountId": "{$AccountID}",
             "Email": "BUShareService_dev@company.com"
         }
     ],
-	"MasterId": "843403612003"
+	"MasterId": "{$AccountID}"
 }'
 ```
 
@@ -366,19 +366,19 @@ You use this method to automatically send all findings, or all findings that hav
 ```
 # Example (need to replace jwtToken with real token which can get with below API)
 
-# curl -H 'Content-Type: application/json' -X POST 'https://aqu5oyrzna.execute-api.cn-north-1.amazonaws.com.cn/dev/auth/login' -d '{
+# curl -H 'Content-Type: application/json' -X POST 'https://{$host}/dev/auth/login' -d '{
   "username": "{$username}",
   "password": "{$password}"
 }'
 
-# curl -H "Authorization: jwtToken" -H "Content-Type: application/json" -X POST "https://i06pro3vvi.execute-api.cn-north-1.amazonaws.com.cn/api/securityhub/guardduty-offboard" -d '{
+# curl -H "Authorization: jwtToken" -H "Content-Type: application/json" -X POST "https://{$host}/api/securityhub/guardduty-offboard" -d '{
 	"AwsAccountIds": [
         {
-            "AwsAccountId": "843064179036",
+            "AwsAccountId": "{$AccountID}",
             "Email": "BUShareService_dev@company.com"
         }
     ],
-	"MasterId": "843403612003"
+	"MasterId": "{$AccountID}"
 }'
 ```
 
@@ -390,15 +390,15 @@ You use this method to automatically send all findings, or all findings that hav
 ```
 # Example (need to replace jwtToken with real token which can get with below API)
 
-# curl -H 'Content-Type: application/json' -X POST 'https://aqu5oyrzna.execute-api.cn-north-1.amazonaws.com.cn/dev/auth/login' -d '{
+# curl -H 'Content-Type: application/json' -X POST 'https://{$host}/dev/auth/login' -d '{
   "username": "{$username}",
   "password": "{$password}"
 }'
 
-# curl -H "Authorization: jwtToken" -H "Content-Type: application/json" -X POST "https://i06pro3vvi.execute-api.cn-north-1.amazonaws.com.cn/api/securityhub/iamanalyzer-onboard" -d '{
+# curl -H "Authorization: jwtToken" -H "Content-Type: application/json" -X POST "https://{$host}/api/securityhub/iamanalyzer-onboard" -d '{
 	"AwsAccountIds": [
         {
-            "AwsAccountId": "843064179036",
+            "AwsAccountId": "{$AccountID}",
             "Email": "BUShareService_dev@company.com"
         }
     ]
@@ -416,19 +416,19 @@ You use this method to automatically send all findings, or all findings that hav
 ```
 # Example (need to replace jwtToken with real token which can get with below API)
 
-# curl -H 'Content-Type: application/json' -X POST 'https://aqu5oyrzna.execute-api.cn-north-1.amazonaws.com.cn/dev/auth/login' -d '{
+# curl -H 'Content-Type: application/json' -X POST 'https://{$host}/dev/auth/login' -d '{
   "username": "{$username}",
   "password": "{$password}"
 }'
 
-# curl -H "Authorization: jwtToken" -H "Content-Type: application/json" -X POST "https://i06pro3vvi.execute-api.cn-north-1.amazonaws.com.cn/api/securityhub/offboard" -d '{
+# curl -H "Authorization: jwtToken" -H "Content-Type: application/json" -X POST "https://{$host}/api/securityhub/offboard" -d '{
 	"AwsAccountIds": [
         {
-            "AwsAccountId": "843064179036",
+            "AwsAccountId": "{$AccountID}",
             "Email": "BUShareService_dev@company.com"
 	    }
     ],
-	"MasterId": "843403612003"
+	"MasterId": "{$AccountID}"
 }'
 ```
 

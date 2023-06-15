@@ -11,7 +11,7 @@ authorizer = CustomAuthorizer(
     'Oap2ImsJwtAuthorizer',
     header='Authorization',
     authorizer_uri=('{$URI}'),
-    invoke_role_arn='arn:aws-cn:iam::843403612003:role/ims-api-authorizer-role'
+    invoke_role_arn='arn:aws-cn:iam::{$AccountID}:role/ims-api-authorizer-role'
 )
 
 
@@ -58,7 +58,7 @@ def switch_role(**kwargs):
 
 def get_wechat_group(**kwargs):
     groupName = kwargs['groupName']
-    url = "https://5bf2ses997.execute-api.cn-north-1.amazonaws.com.cn/dev/v1/aws/wechat/groups"
+    url = "https://{$host}/dev/v1/aws/wechat/groups"
     params = {'name': groupName}
     headers = {}
     response = requests.request("GET", url, headers=headers, params=params)
@@ -70,7 +70,7 @@ def send_wechat_message(**kwargs):
     groupId = kwargs['groupId']
     title = kwargs['title']
     description = kwargs['description']
-    url = "https://bafask91w9.execute-api.cn-north-1.amazonaws.com.cn/dev/messages"
+    url = "https://{$host}/dev/messages"
     payload = json.dumps({
         "msgType": "textcard",
         "msgContent": {
@@ -94,7 +94,7 @@ def send_mail(**kwargs):
     subject = kwargs['Subject']
     body = kwargs['Body']
 
-    url = "http://10.200.21.108:8000/utils/account/send/mail/"
+    url = "http://{$host}/utils/account/send/mail/"
     payload = {'Receivers': receivers,
                'Subject': subject,
                'Body': body
