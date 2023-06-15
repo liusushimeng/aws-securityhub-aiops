@@ -1,0 +1,99 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+      xmlns:o="urn:schemas-microsoft-com:office:office"
+      xmlns:w="urn:schemas-microsoft-com:office:word"
+      xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+      xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+ <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+ <meta name=ProgId content=Word.Document>
+ <meta name=Generator content="Microsoft Word 15">
+ <meta name=Originator content="Microsoft Word 15">
+</head>
+
+<body bgcolor="#F2F2F2" lang=EN-US link="#0563C1" vlink="#954F72"
+      style='tab-interval:.5in'>
+
+<div class=WordSection1>
+
+ <div align=center>
+
+  <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+         style='border-collapse:collapse;mso-yfti-tbllook:1184;mso-padding-alt:0in 0in 0in 0in'>
+   <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;height:51.4pt'>
+    <td width=708 colspan=2 valign=top style='width:661.5pt;background:#EA9300;
+  padding:0in 5.4pt 0in 5.4pt;height:51.4pt'>
+     <p class=MsoNormal align=center style='text-align:center'><span
+             style='font-size:18.0pt;font-family:"Arial",sans-serif;color:white;
+  position:relative;top:-3.0pt;mso-text-raise:3.0pt;letter-spacing:1.0pt'><o:p>&nbsp;</o:p></span></p>
+     <p class=MsoNormal><span style='font-size:18.0pt;font-family:"Arial",sans-serif;
+  color:white;position:relative;top:-3.0pt;mso-text-raise:3.0pt;letter-spacing:
+  1.0pt'>Daimler China AWS Security Finding Alarm:<o:p></o:p></span></p>
+     <p class=MsoNormal><span style='font-size:18.0pt;font-family:"Arial",sans-serif;
+  color:white;position:relative;top:-3.0pt;mso-text-raise:3.0pt;letter-spacing:
+  1.0pt'>IAM users' access keys should be rotated every 90 days or less </span><span style='font-size:18.0pt;font-family:"Arial",sans-serif;
+  color:white;position:relative;top:-3.0pt;mso-text-raise:3.0pt;letter-spacing:
+  1.0pt'><o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:1'>
+    <td width=262 valign=top style='width:215.75pt;background:white;padding:0in 5.4pt 0in 5.4pt'>
+     <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+    </td>
+    <td width=446 valign=top style='width:445.75pt;background:white;padding:0in 5.4pt 0in 5.4pt'>
+     <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:2;height:127.8pt'>
+    <td width=708 colspan=2 valign=top style='width:661.5pt;background:white;
+  padding:0in 5.4pt 0in 5.4pt;height:127.8pt'>
+     <p class=MsoNormal style='line-height:18.0pt;mso-line-height-rule:exactly'><span
+             style='font-size:12.0pt;font-family:"Arial",sans-serif'>Dear {Owner}, <o:p></o:p></span></p>
+     <p class=MsoNormal><span style='font-size:12.0pt;font-family:"Arial",sans-serif'>
+    Please kindly be informed that your owned below AKSK age of AWS IAM User {UserName} in AWS account {AccountID} has more than 90 days for project {Project}<o:p></o:p></span></p>
+     <p class=MsoNormal ><b>AccessKeyId: </b><a><b>{AccessKeyId}</b></a></p>
+     <p class=MsoNormal ><b>AccessKeyAge: </b><a><b>{AccessKeyAge}</b></a></p>
+     <p class=MsoNormal style='line-height:18.0pt;mso-line-height-rule:exactly'><span
+             style='font-size:12.0pt;font-family:"Arial",sans-serif'> If the AKSK is a service credential configured in application,
+      you can raise a servicenow security ticket including the detailed reason to apply the rotation from 90 days to 1 year and it will be approved by our security team.
+      If the AKSK is personally, please contact us (dw_133_aws-ops@daimler.com) to generate the new AKSK and use it to replace the above AKSK in your local AWS CLI config in 10 days from the first alarm mail received.<o:p></o:p></span></p>
+
+     <p class=MsoNormal style='line-height:12.0pt;mso-line-height-rule:exactly'><span
+             style='font-size:12.0pt;font-family:"Arial",sans-serif'><br>After replaced done 5 days, please contact us to disable the old AKSK.<o:p></o:p></span></p>
+
+     <p class=MsoNormal style='line-height:12.0pt;mso-line-height-rule:exactly'><span
+             style='font-size:12.0pt;font-family:"Arial",sans-serif'><br>After disabled done 5 days, we will delete the old AKSK.<o:p></o:p></span></p>
+
+     <p class=MsoNormal style='line-height:5.0pt;mso-line-height-rule:exactly'><span
+             style='color:black'><o:p>&nbsp;</o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:3'>
+    <td width=262 valign=top style='width:215.75pt;background:white;padding:0in 5.4pt 0in 5.4pt'>
+     <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+    </td>
+    <td width=446 valign=top style='width:445.75pt;background:white;padding:0in 5.4pt 0in 5.4pt'>
+     <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:4;mso-yfti-lastrow:yes'>
+    <td width=708 colspan=2 valign=top style='width:661.5pt;background:white;
+  padding:0in 5.4pt 0in 5.4pt'>
+     <p class=MsoNormal align=center style='text-align:center'><b>For Daimler China AWS
+      support, please contact us via:</b></p>
+     <p class=MsoNormal align=center style='text-align:center'><b>Email: </b><a
+             href="mailto:cn.helpdesk@daimler.com"><b>dw_133_aws-ops@daimler.com</b></a></p>
+     <p class=MsoNormal align=center style='text-align:center'></p>
+    </td>
+   </tr>
+  </table>
+
+ </div>
+
+ <p class=MsoNormal><span style='font-family:CorpoS'><o:p>&nbsp;</o:p></span></p>
+
+</div>
+
+</body>
+
+</html>
