@@ -23,8 +23,8 @@ The Center for Internet Security (CIS) AWS Foundations Benchmark v1.2.0 is a set
 
 ## Standards Control Exception
 
-- https://git.company.com/ITT-China/aws-securityhub/blob/master/docs/AWS%20Foundational%20Security%20Best%20Practices%20v1.0.0.xlsx
-- https://git.company.com/ITT-China/aws-securityhub/blob/master/docs/CIS%20AWS%20Foundations%20Benchmark%20v1.2.0.xlsx
+- https://github.com/liusushimeng/aws-securityhub-aiops/blob/main/docs/AWS%20Foundational%20Security%20Best%20Practices%20v1.0.0.xlsx
+- https://github.com/liusushimeng/aws-securityhub-aiops/blob/main/docs/CIS%20AWS%20Foundations%20Benchmark%20v1.2.0.xlsx
 
 
 # Architecture
