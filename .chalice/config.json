@@ -4,7 +4,7 @@
   "api_gateway_endpoint_type": "REGIONAL",
   "automatic_layer": true,
   "manage_iam_role": false,
-  "iam_role_arn": "arn:aws-cn:iam::843403612003:role/service-role/oap2-ims-master",
+  "iam_role_arn": "arn:aws-cn:iam::{$AccountID}:role/service-role/{$Role_ARN}",
   "stages": {
     "dev": {
       "api_gateway_stage": "api",

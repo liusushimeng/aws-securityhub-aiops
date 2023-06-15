@@ -10,9 +10,7 @@ import requests
 authorizer = CustomAuthorizer(
     'Oap2ImsJwtAuthorizer',
     header='Authorization',
-    authorizer_uri=('arn:aws-cn:apigateway:cn-north-1:lambda:path/2015-03-31'
-                    '/functions/arn:aws-cn:lambda:cn-north-1:843403612003:'
-                    'function:oap2-ims-jwt-authorizer/invocations'),
+    authorizer_uri=('{$URI}'),
     invoke_role_arn='arn:aws-cn:iam::843403612003:role/ims-api-authorizer-role'
 )
 
@@ -102,7 +100,7 @@ def send_mail(**kwargs):
                'Body': body
                }
     headers = {
-        'Authorization': 'Token f071d8feda5e42148d42142fbea2de3f4eccfde1'
+        'Authorization': '{$Token}'
     }
 
     response = requests.request("POST", url, headers=headers, data=payload)
