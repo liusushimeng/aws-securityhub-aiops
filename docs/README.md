@@ -303,7 +303,7 @@ You use this method to automatically send all findings, or all findings that hav
 ```
         "Tags": [
             {
-                "Value": "Project Owner Name",     # Like  "Kong Wei Jia"
+                "Value": "Project Owner Name",     
                 "Key": "Owner"
             }, 
             {
