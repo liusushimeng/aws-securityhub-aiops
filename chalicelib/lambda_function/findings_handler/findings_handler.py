@@ -696,7 +696,7 @@ def SNS1(**kwargs):
         client.set_topic_attributes(
             TopicArn=resource['Id'],
             AttributeName='KmsMasterKeyId',
-            AttributeValue='arn:aws-cn:kms:cn-north-1:843403612003:key/9cd7c588-846d-46c6-b81c-3b932f5bd70d'
+            AttributeValue='arn:aws-cn:kms:cn-north-1:{$AccountID}:key/9cd7c588-846d-46c6-b81c-3b932f5bd70d'
         )
     else:
         client.set_topic_attributes(
